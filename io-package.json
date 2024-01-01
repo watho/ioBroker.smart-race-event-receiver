@@ -1,0 +1,83 @@
+{
+	"common": {
+		"name": "smart-race-adapter",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "SmartRaceAdapter",
+		"titleLang": {
+			"en": "SmartRaceAdapter",
+			"de": "SmartRaceAdapter",
+			"ru": "SmartRaceAdapter",
+			"pt": "SmartRaceAdapter",
+			"nl": "SmartRaceAdapter",
+			"fr": "SmartRaceAdapter",
+			"it": "SmartRaceAdapter",
+			"es": "SmartRaceAdapter",
+			"pl": "SmartRaceAdapter",
+			"zh-cn": "SmartRaceAdapter"
+		},
+		"desc": {
+			"en": "Recieving race events from SmartRace-App",
+			"de": "Recieving race events from SmartRace-App",
+			"ru": "Recieving race events from SmartRace-App",
+			"pt": "Recieving race events from SmartRace-App",
+			"nl": "Recieving race events from SmartRace-App",
+			"fr": "Recieving race events from SmartRace-App",
+			"it": "Recieving race events from SmartRace-App",
+			"es": "Recieving race events from SmartRace-App",
+			"pl": "Recieving race events from SmartRace-App",
+			"zh-cn": "Recieving race events from SmartRace-App"
+		},
+		"authors": [
+			"watho <watho@web.de>"
+		],
+		"keywords": [
+			"smartrace",
+			"slotca"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "smart-race-adapter.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/watho/ioBroker.smart-race-adapter/main/admin/smart-race-adapter.png",
+		"readme": "https://github.com/watho/ioBroker.smart-race-adapter/blob/main/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "communication",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "push",
+		"adminUI": {
+			"config": "materialize"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=3.3.22"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=5.0.0"
+			}
+		]
+	},
+	"native": {
+		"port": "8090"
+	},
+	"objects": [],
+	"instanceObjects": []
+}

@@ -1,0 +1,48 @@
+{
+	"expert": "yes",
+	"cli": false,
+	"adapterName": "smart-race-adapter",
+	"title": "SmartRaceAdapter",
+	"description": "Recieving race events from SmartRace-App",
+	"keywords": [
+		"smartrace",
+		"slotca"
+	],
+	"contributors": "",
+	"features": [
+		"adapter"
+	],
+	"adminFeatures": [],
+	"type": "communication",
+	"startMode": "daemon",
+	"connectionType": "local",
+	"dataSource": "push",
+	"connectionIndicator": "no",
+	"adapterSettings": [
+		{
+			"key": "port",
+			"label": "port",
+			"inputType": "number",
+			"defaultValue": "8090"
+		}
+	],
+	"language": "JavaScript",
+	"nodeVersion": "14",
+	"adminUi": "html",
+	"releaseScript": "yes",
+	"indentation": "Tab",
+	"quotes": "double",
+	"es6class": "yes",
+	"tools": [
+		"ESLint"
+	],
+	"i18n": "words.js",
+	"authorName": "watho",
+	"authorGithub": "watho",
+	"authorEmail": "watho@web.de",
+	"gitRemoteProtocol": "HTTPS",
+	"license": "MIT License",
+	"dependabot": "yes",
+	"target": "github",
+	"creatorVersion": "2.3.0"
+}
