@@ -1,7 +1,7 @@
 {
   "name": "iobroker.smart-race-adapter",
   "version": "0.0.1",
-  "description": "Recieving race events from SmartRace-App",
+  "description": "Receiving race events from SmartRace-App",
   "author": {
     "name": "watho",
     "email": "watho@web.de"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "keywords": [
     "smartrace",
-    "slotca"
+    "slotcar"
   ],
   "repository": {
     "type": "git",
