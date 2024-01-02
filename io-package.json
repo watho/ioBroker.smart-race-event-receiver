@@ -17,18 +17,18 @@
 				"zh-cn": "首次出版"
 			}
 		},
-		"title": "SmartRaceAdapter",
+		"title": "SmartRaceEventReceiver",
 		"titleLang": {
-			"en": "SmartRaceAdapter",
-			"de": "SmartRaceAdapter",
+			"en": "SmartRaceEventReceiver",
+			"de": "SmartRaceEventReceiver",
 			"ru": "SmartRaceАдаптер",
-			"pt": "Adaptador SmartRace",
-			"nl": "SmartRaceAdapter",
-			"fr": "Adaptateur SmartRace",
-			"it": "Adattatore SmartRace",
-			"es": "Adaptador de carrera inteligente",
-			"pl": "Adapter SmartRace",
-			"uk": "SmartRaceAdapter",
+			"pt": "SmartRaceEventReceiver",
+			"nl": "SmartRaceEventReceiver",
+			"fr": "SmartRaceEventReceiver",
+			"it": "SmartRaceEventReceiver",
+			"es": "SmartRaceEventReceiver",
+			"pl": "SmartRaceEventReceiver",
+			"uk": "SmartRaceEventReceiver",
 			"zh-cn": "智能竞赛适配器"
 		},
 		"desc": {
