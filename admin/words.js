@@ -14,18 +14,20 @@ systemDictionary = {
 		"it": "Impostazioni dell'adattatore per smart-race-adapter",
 		"es": "Ajustes del adaptador para smart-race-adapter",
 		"pl": "Ustawienia adaptera dla smart-race-adapter",
+		"uk": "Налаштування адаптера для smart-race-adapter",
 		"zh-cn": "smart-race-adapter的适配器设置"
 	},
 	"port": {
 		"en": "port",
-		"de": "port",
-		"ru": "port",
-		"pt": "port",
-		"nl": "port",
+		"de": "Hafen",
+		"ru": "порт",
+		"pt": "porta",
+		"nl": "haven",
 		"fr": "port",
-		"it": "port",
-		"es": "port",
-		"pl": "port",
-		"zh-cn": "port"
+		"it": "porta",
+		"es": "puerto",
+		"pl": "Port",
+		"uk": "порт",
+		"zh-cn": "港口"
 	}
 };

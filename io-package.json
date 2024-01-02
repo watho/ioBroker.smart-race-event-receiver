@@ -13,6 +13,7 @@
 				"it": "Versione iniziale",
 				"es": "Versión inicial",
 				"pl": "Pierwsze wydanie",
+				"uk": "Початкова версія",
 				"zh-cn": "首次出版"
 			}
 		},
@@ -20,33 +21,35 @@
 		"titleLang": {
 			"en": "SmartRaceAdapter",
 			"de": "SmartRaceAdapter",
-			"ru": "SmartRaceAdapter",
-			"pt": "SmartRaceAdapter",
+			"ru": "SmartRaceАдаптер",
+			"pt": "Adaptador SmartRace",
 			"nl": "SmartRaceAdapter",
-			"fr": "SmartRaceAdapter",
-			"it": "SmartRaceAdapter",
-			"es": "SmartRaceAdapter",
-			"pl": "SmartRaceAdapter",
-			"zh-cn": "SmartRaceAdapter"
+			"fr": "Adaptateur SmartRace",
+			"it": "Adattatore SmartRace",
+			"es": "Adaptador de carrera inteligente",
+			"pl": "Adapter SmartRace",
+			"uk": "SmartRaceAdapter",
+			"zh-cn": "智能竞赛适配器"
 		},
 		"desc": {
 			"en": "Recieving race events from SmartRace-App",
-			"de": "Recieving race events from SmartRace-App",
-			"ru": "Recieving race events from SmartRace-App",
-			"pt": "Recieving race events from SmartRace-App",
-			"nl": "Recieving race events from SmartRace-App",
-			"fr": "Recieving race events from SmartRace-App",
-			"it": "Recieving race events from SmartRace-App",
-			"es": "Recieving race events from SmartRace-App",
-			"pl": "Recieving race events from SmartRace-App",
-			"zh-cn": "Recieving race events from SmartRace-App"
+			"de": "Empfang von Rennereignissen aus der SmartRace-App",
+			"ru": "Получение событий гонки из приложения SmartRace.",
+			"pt": "Recebendo eventos de corrida do SmartRace-App",
+			"nl": "Race-evenementen ontvangen van SmartRace-App",
+			"fr": "Réception des événements de course depuis SmartRace-App",
+			"it": "Ricevere eventi di gara dall'app SmartRace",
+			"es": "Recibir eventos de carrera desde la aplicación SmartRace",
+			"pl": "Odbieranie wydarzeń wyścigowych z aplikacji SmartRace",
+			"uk": "Отримання подій перегонів від SmartRace-App",
+			"zh-cn": "从 SmartRace-App 接收比赛事件"
 		},
 		"authors": [
 			"watho <watho@web.de>"
 		],
 		"keywords": [
 			"smartrace",
-			"slotca"
+			"slotcar"
 		],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",

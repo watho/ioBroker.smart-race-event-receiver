@@ -1,7 +1,7 @@
 "use strict";
 
 /*
- * Created with @iobroker/create-adapter v2.3.0
+ * Created with @iobroker/create-adapter v2.5.0
  */
 
 // The adapter-core module gives you access to the core ioBroker functions
