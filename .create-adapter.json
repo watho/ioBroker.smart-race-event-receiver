@@ -1,12 +1,12 @@
 {
 	"expert": "yes",
-	"cli": false,
+	"cli": true,
 	"adapterName": "smart-race-adapter",
 	"title": "SmartRaceAdapter",
 	"description": "Recieving race events from SmartRace-App",
 	"keywords": [
 		"smartrace",
-		"slotca"
+		"slotcar"
 	],
 	"contributors": "",
 	"features": [
@@ -27,7 +27,7 @@
 		}
 	],
 	"language": "JavaScript",
-	"nodeVersion": "14",
+	"nodeVersion": "16",
 	"adminUi": "html",
 	"releaseScript": "yes",
 	"indentation": "Tab",
@@ -44,5 +44,10 @@
 	"license": "MIT License",
 	"dependabot": "yes",
 	"target": "github",
-	"creatorVersion": "2.3.0"
+	"creatorVersion": "2.5.0",
+	"replay": "/home/watho/daten/programmierung/git/ioBroker.smart-race-adapter/.create-adapter.json",
+	"devServer": "yes",
+	"devServerPort": 8081,
+	"gitCommit": "no",
+	"defaultBranch": "main"
 }
