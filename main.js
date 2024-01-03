@@ -14,8 +14,8 @@ const utils = require("@iobroker/adapter-core");
 class SmartRaceAdapter extends utils.Adapter {
 
 	/**
-	 * @param {Partial<utils.AdapterOptions>} [options={}]
-	 */
+     * @param {Partial<utils.AdapterOptions>} [options={}]
+     */
 	constructor(options) {
 		super({
 			...options,
@@ -29,20 +29,20 @@ class SmartRaceAdapter extends utils.Adapter {
 	}
 
 	/**
-	 * Is called when databases are connected and adapter received configuration.
-	 */
+     * Is called when databases are connected and adapter received configuration.
+     */
 	async onReady() {
-		// Initialize your adapter here
-
 		// The adapters config (in the instance object everything under the attribute "native") is accessible via
 		// this.config:
 		this.log.info("config port: " + this.config.port);
+		// Initialize your adapter here
+		await this.initWebServer(this.config.port);
 
 		/*
-		For every state in the system there has to be also an object of type state
-		Here a simple template for a boolean variable named "testVariable"
-		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-		*/
+        For every state in the system there has to be also an object of type state
+        Here a simple template for a boolean variable named "testVariable"
+        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
+        */
 		await this.setObjectNotExistsAsync("testVariable", {
 			type: "state",
 			common: {
@@ -63,18 +63,18 @@ class SmartRaceAdapter extends utils.Adapter {
 		// this.subscribeStates("*");
 
 		/*
-			setState examples
-			you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-		*/
+            setState examples
+            you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
+        */
 		// the variable testVariable is set to true as command (ack=false)
 		await this.setStateAsync("testVariable", true);
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync("testVariable", { val: true, ack: true });
+		await this.setStateAsync("testVariable", {val: true, ack: true});
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+		await this.setStateAsync("testVariable", {val: true, ack: true, expire: 30});
 
 		// examples for the checkPassword/checkGroup functions
 		let result = await this.checkPasswordAsync("admin", "iobroker");
@@ -85,9 +85,9 @@ class SmartRaceAdapter extends utils.Adapter {
 	}
 
 	/**
-	 * Is called when adapter shuts down - callback has to be called under any circumstances!
-	 * @param {() => void} callback
-	 */
+     * Is called when adapter shuts down - callback has to be called under any circumstances!
+     * @param {() => void} callback
+     */
 	onUnload(callback) {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
@@ -120,10 +120,10 @@ class SmartRaceAdapter extends utils.Adapter {
 	// }
 
 	/**
-	 * Is called if a subscribed state changes
-	 * @param {string} id
-	 * @param {ioBroker.State | null | undefined} state
-	 */
+     * Is called if a subscribed state changes
+     * @param {string} id
+     * @param {ioBroker.State | null | undefined} state
+     */
 	onStateChange(id, state) {
 		if (state) {
 			// The state was changed
@@ -152,13 +152,65 @@ class SmartRaceAdapter extends utils.Adapter {
 	// 	}
 	// }
 
+
+	async initWebServer(port) {
+
+		const server = {
+			server: null,
+			port: port
+		};
+
+		if (port) {
+			server.server = require("http").createServer(this.requestProcessor);
+			server.server.__server = server;
+		} else {
+			this.log.error("Port missing");
+			process.exit(1);
+		}
+
+		if (server.server) {
+			server.server.listen(port);
+			this.log.info("HTTP server is listening on port " + port);
+		}
+
+		if (server.server) {
+			return server;
+		} else {
+			return null;
+		}
+	}
+
+	requestProcessor(req, res) {
+		if (req.method === "POST") {
+			//this.log.info("Buh");
+			//this.log.debug("Received request: " + req.url);
+			// var parsedUrl = url.parse(req.url, true);
+			// var reqData = parsedUrl.query;
+			//
+			// adapter.log.debug("Analyzed request data: " + JSON.stringify(reqData));
+			// var user = parsedUrl.pathname.slice(1);
+			this.handleRequest();
+
+			res.writeHead(200);
+			res.write("OK");
+			res.end();
+		} else {
+			res.writeHead(500);
+			res.write("Request error");
+			res.end();
+		}
+	}
+
+	handleRequest(){
+		this.log.info("Handling request");
+	}
 }
 
 if (require.main !== module) {
 	// Export the constructor in compact mode
 	/**
-	 * @param {Partial<utils.AdapterOptions>} [options={}]
-	 */
+     * @param {Partial<utils.AdapterOptions>} [options={}]
+     */
 	module.exports = (options) => new SmartRaceAdapter(options);
 } else {
 	// otherwise start the instance directly
