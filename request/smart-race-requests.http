@@ -1,6 +1,24 @@
 POST http://localhost:8090/
 Content-Type: application/json
 
-{"test":"test"}
+{
+  "time": 1684769957969,
+  "event_type": "event.start",
+  "event_data": {
+    "type": "race",
+    "laps": "50"
+  }
+}
 
 ###
+POST http://localhost:8090/
+Content-Type: application/json
+
+{
+  "time": 1684769957969,
+  "event_type": "event.change_status",
+  "event_data": {
+    "old": "running",
+    "new": "ended"
+  }
+}

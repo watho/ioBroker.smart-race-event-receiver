@@ -81,5 +81,38 @@
 		"port": "8090"
 	},
 	"objects": [],
-	"instanceObjects": []
+	"instanceObjects": [
+		{
+			"_id": "event",
+			"type": "channel",
+			"common": {
+				"name": "RaceEvent"
+			},
+			"native": {}
+		},
+		{
+			"_id": "event.lastRaceEventTimestamp",
+			"type": "state",
+			"common": {
+				"name": "lastRaceEventTimestamp",
+				"type": "number",
+				"role": "value.time",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "event.raceStatus",
+			"type": "state",
+			"common": {
+				"name": "raceStatus",
+				"type": "string",
+				"role": "state",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+		}
+	]
 }
