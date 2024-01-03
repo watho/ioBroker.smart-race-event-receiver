@@ -1,6 +1,6 @@
 {
 	"common": {
-		"name": "smart-race-adapter",
+		"name": "smart-race-event-receiver",
 		"version": "0.0.1",
 		"news": {
 			"0.0.1": {
@@ -17,7 +17,6 @@
 				"zh-cn": "首次出版"
 			}
 		},
-		"title": "SmartRaceEventReceiver",
 		"titleLang": {
 			"en": "SmartRaceEventReceiver",
 			"de": "SmartRaceEventReceiver",

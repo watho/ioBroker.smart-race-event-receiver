@@ -1,12 +1,12 @@
 {
-  "name": "iobroker.smart-race-adapter",
+  "name": "iobroker.smart-race-event-receiver",
   "version": "0.0.1",
   "description": "Receiving race events from SmartRace-App",
   "author": {
     "name": "watho",
     "email": "watho@web.de"
   },
-  "homepage": "https://github.com/watho/ioBroker.smart-race-adapter",
+  "homepage": "https://github.com/watho/ioBroker.smart-race-event-receiver",
   "license": "MIT",
   "keywords": [
     "smartrace",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/watho/ioBroker.smart-race-adapter.git"
+    "url": "https://github.com/watho/ioBroker.smart-race-event-receiver.git"
   },
   "engines": {
     "node": ">= 16"
