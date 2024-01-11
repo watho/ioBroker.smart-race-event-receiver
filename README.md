@@ -41,7 +41,7 @@ You are almost done, only a few steps left:
     ```bash
     git push origin main
     ```
-1. Add a new secret under https://github.com/WaTho/ioBroker.smart-race-event-receiver/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
+1. Add a new secret under https://github.com/watho/ioBroker.smart-race-event-receiver/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
 
 1. Head over to [src/main.ts](src/main.ts) and start programming!
 
@@ -114,12 +114,12 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 -->
 
 ### **WORK IN PROGRESS**
-* (WaTho) initial release
+* (watho) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2024 WaTho <watho@users.noreply.github.com>
+Copyright (c) 2024 watho <watho@users.noreply.github.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -24,13 +24,14 @@
     "indentation": "Space (4)",
     "quotes": "double",
     "es6class": "yes",
-    "authorName": "WaTho",
-    "authorGithub": "WaTho",
+    "authorName": "watho",
+    "authorGithub": "watho",
     "authorEmail": "watho@users.noreply.github.com",
     "gitRemoteProtocol": "SSH",
     "gitCommit": "no",
     "defaultBranch": "main",
     "license": "MIT License",
     "dependabot": "yes",
-    "creatorVersion": "2.6.0"
+    "creatorVersion": "2.6.0",
+    "replay": "/home/watho/daten/programmierung/git/ioBroker.smart-race-event-receiver/.create-adapter.json"
 }
