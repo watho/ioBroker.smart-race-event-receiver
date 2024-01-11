@@ -1,18 +1,18 @@
-![Logo](admin/smart-race-adapter.png)
-# ioBroker.smart-race-adapter
+![Logo](admin/smart-race-event-receiver.png)
+# ioBroker.smart-race-event-receiver
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.smart-race-adapter.svg)](https://www.npmjs.com/package/iobroker.smart-race-adapter)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.smart-race-adapter.svg)](https://www.npmjs.com/package/iobroker.smart-race-adapter)
-![Number of Installations](https://iobroker.live/badges/smart-race-adapter-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/smart-race-adapter-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.smart-race-event-receiver.svg)](https://www.npmjs.com/package/iobroker.smart-race-event-receiver)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.smart-race-event-receiver.svg)](https://www.npmjs.com/package/iobroker.smart-race-event-receiver)
+![Number of Installations](https://iobroker.live/badges/smart-race-event-receiver-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/smart-race-event-receiver-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.smart-race-adapter.png?downloads=true)](https://nodei.co/npm/iobroker.smart-race-adapter/)
+[![NPM](https://nodei.co/npm/iobroker.smart-race-event-receiver.png?downloads=true)](https://nodei.co/npm/iobroker.smart-race-event-receiver/)
 
-**Tests:** ![Test and Release](https://github.com/watho/ioBroker.smart-race-adapter/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/watho/ioBroker.smart-race-event-receiver/workflows/Test%20and%20Release/badge.svg)
 
-## smart-race-adapter adapter for ioBroker
+## smart-race-event-receiver adapter for ioBroker
 
-Recieving race events from SmartRace-App
+Receiving race events from SmartRace-App
 
 ## Developer manual
 This section is intended for the developer. It can be deleted later.
@@ -25,12 +25,25 @@ You can check other adapters for examples or ask in the developer community. Usi
 ### Getting started
 
 You are almost done, only a few steps left:
-1. Clone the repository from GitHub to a directory on your PC:
-	```bash
-	git clone https://github.com/watho/ioBroker.smart-race-adapter
-	```
+1. Create a new repository on GitHub with the name `ioBroker.smart-race-event-receiver`
+1. Initialize the current folder as a new git repository:  
+    ```bash
+    git init -b main
+    git add .
+    git commit -m "Initial commit"
+    ```
+1. Link your local repository with the one on GitHub:  
+    ```bash
+    git remote add origin https://github.com/watho/ioBroker.smart-race-event-receiver
+    ```
 
-1. Head over to [main.js](main.js) and start programming!
+1. Push all files to the GitHub repo:  
+    ```bash
+    git push origin main
+    ```
+1. Add a new secret under https://github.com/WaTho/ioBroker.smart-race-event-receiver/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
+
+1. Head over to [src/main.ts](src/main.ts) and start programming!
 
 ### Best Practices
 We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
@@ -40,13 +53,21 @@ check them out. If you're already experienced, you should also take a look at th
 Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
 | Script name | Description |
 |-------------|-------------|
-| `test:js` | Executes the tests you defined in `*.test.js` files. |
+| `build` | Compile the TypeScript sources. |
+| `watch` | Compile the TypeScript sources and watch for changes. |
+| `test:ts` | Executes the tests you defined in `*.test.ts` files. |
 | `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
 | `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
 | `test` | Performs a minimal test run on package files and your tests. |
+| `check` | Performs a type-check on your code (without compiling anything). |
 | `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
 | `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
 | `release` | Creates a new release, see [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) for more details. |
+
+### Configuring the compilation
+The adapter template uses [esbuild](https://esbuild.github.io/) to compile TypeScript and/or React code. You can configure many compilation settings 
+either in `tsconfig.json` or by changing options for the build tasks. These options are described in detail in the
+[`@iobroker/adapter-dev` documentation](https://github.com/ioBroker/adapter-dev#compile-adapter-files).
 
 ### Writing tests
 When done right, testing code is invaluable, because it gives you the 
@@ -88,17 +109,17 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
 
 ### **WORK IN PROGRESS**
-* (watho) initial release
+* (WaTho) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2024 watho <watho@web.de>
+Copyright (c) 2024 WaTho <watho@users.noreply.github.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,86 +1,102 @@
 {
-	"common": {
-		"name": "smart-race-event-receiver",
-		"version": "0.0.1",
-		"news": {
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Початкова версія",
-				"zh-cn": "首次出版"
-			}
-		},
-		"titleLang": {
-			"en": "SmartRaceEventReceiver",
-			"de": "SmartRaceEventReceiver",
-			"ru": "SmartRaceАдаптер",
-			"pt": "SmartRaceEventReceiver",
-			"nl": "SmartRaceEventReceiver",
-			"fr": "SmartRaceEventReceiver",
-			"it": "SmartRaceEventReceiver",
-			"es": "SmartRaceEventReceiver",
-			"pl": "SmartRaceEventReceiver",
-			"uk": "SmartRaceEventReceiver",
-			"zh-cn": "智能竞赛适配器"
-		},
-		"desc": {
-			"en": "Recieving race events from SmartRace-App",
-			"de": "Empfang von Rennereignissen aus der SmartRace-App",
-			"ru": "Получение событий гонки из приложения SmartRace.",
-			"pt": "Recebendo eventos de corrida do SmartRace-App",
-			"nl": "Race-evenementen ontvangen van SmartRace-App",
-			"fr": "Réception des événements de course depuis SmartRace-App",
-			"it": "Ricevere eventi di gara dall'app SmartRace",
-			"es": "Recibir eventos de carrera desde la aplicación SmartRace",
-			"pl": "Odbieranie wydarzeń wyścigowych z aplikacji SmartRace",
-			"uk": "Отримання подій перегонів від SmartRace-App",
-			"zh-cn": "从 SmartRace-App 接收比赛事件"
-		},
-		"authors": [
-			"watho <watho@web.de>"
-		],
-		"keywords": [
-			"smartrace",
-			"slotcar"
-		],
-		"license": "MIT",
-		"platform": "Javascript/Node.js",
-		"main": "main.js",
-		"icon": "smart-race-adapter.png",
-		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/watho/ioBroker.smart-race-adapter/main/admin/smart-race-adapter.png",
-		"readme": "https://github.com/watho/ioBroker.smart-race-adapter/blob/main/README.md",
-		"loglevel": "info",
-		"mode": "daemon",
-		"type": "communication",
-		"compact": true,
-		"connectionType": "local",
-		"dataSource": "push",
-		"adminUI": {
-			"config": "materialize"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=3.3.22"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=5.0.0"
-			}
-		]
-	},
-	"native": {
-		"port": "8090"
-	},
-	"objects": [],
+    "common": {
+        "name": "smart-race-event-receiver",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "uk": "Початкова версія",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "SmartRaceEventReceiver",
+        "titleLang": {
+            "en": "SmartRaceEventReceiver",
+            "de": "SmartRaceEventReceiver",
+            "ru": "SmartRaceEventReceiver",
+            "pt": "SmartRaceEventReceptor",
+            "nl": "SmartRaceEventReceiver",
+            "fr": "Récepteur d'événements SmartRace",
+            "it": "SmartRaceEventReceiver",
+            "es": "Receptor de eventos de carrera inteligente",
+            "pl": "Odbiornik SmartRaceEvent",
+            "uk": "SmartRaceEventReceiver",
+            "zh-cn": "SmartRaceEventReceiver"
+        },
+        "desc": {
+            "en": "Receiving race events from SmartRace-App",
+            "de": "Empfang von Rennereignissen von der SmartRace-App",
+            "ru": "Получение событий гонки из приложения SmartRace.",
+            "pt": "Recebendo eventos de corrida do SmartRace-App",
+            "nl": "Race-evenementen ontvangen van SmartRace-App",
+            "fr": "Recevoir des événements de course depuis SmartRace-App",
+            "it": "Ricevere eventi di gara dall'app SmartRace",
+            "es": "Recibir eventos de carrera desde la aplicación SmartRace",
+            "pl": "Odbieranie wydarzeń wyścigowych z aplikacji SmartRace",
+            "uk": "Отримання подій перегонів від SmartRace-App",
+            "zh-cn": "从 SmartRace-App 接收比赛事件"
+        },
+        "authors": ["watho <watho@users.noreply.github.com>"],
+        "keywords": ["smartrace", "slotcar", "racing"],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "smart-race-event-receiver.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/watho/ioBroker.smart-race-event-receiver/main/admin/smart-race-event-receiver.png",
+        "readme": "https://github.com/watho/ioBroker.smart-race-event-receiver/blob/main/README.md",
+        "loglevel": "info",
+        "tier": 3,
+        "mode": "daemon",
+        "type": "misc-data",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "adminUI": {
+            "config": "json",
+            "tab": "materialize"
+        },
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "SmartRaceEventReceiver",
+                "de": "SmartRaceEventReceiver",
+                "ru": "SmartRaceEventReceiver",
+                "pt": "SmartRaceEventReceptor",
+                "nl": "SmartRaceEventReceiver",
+                "fr": "Récepteur d'événements SmartRace",
+                "it": "SmartRaceEventReceiver",
+                "es": "Receptor de eventos de carrera inteligente",
+                "pl": "Odbiornik SmartRaceEvent",
+                "uk": "SmartRaceEventReceiver",
+                "zh-cn": "SmartRaceEventReceiver"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.22"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.1.13"
+            }
+        ]
+    },
+    "native": {
+        "port": "8090"
+    },
+    "objects": [],
 	"instanceObjects": [
 		{
 			"_id": "event",
@@ -113,6 +129,6 @@
 				"write": false
 			},
 			"native": {}
-		}
+    }
 	]
 }
