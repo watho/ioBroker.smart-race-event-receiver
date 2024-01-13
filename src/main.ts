@@ -5,7 +5,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
-import { RaceEventHandling } from "./lib/race_event_handling";
+import { RaceEventHandling } from "./lib/race-event-handling";
 import { WebServer } from "@iobroker/webserver";
 import { IncomingMessage, ServerResponse } from "http";
 import * as http from "http";

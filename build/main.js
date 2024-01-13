@@ -28,7 +28,7 @@ __export(main_exports, {
 });
 module.exports = __toCommonJS(main_exports);
 var utils = __toESM(require("@iobroker/adapter-core"));
-var import_race_event_handling = require("./lib/race_event_handling");
+var import_race_event_handling = require("./lib/race-event-handling");
 var import_webserver = require("@iobroker/webserver");
 class SmartRaceEventReceiver extends utils.Adapter {
   server;

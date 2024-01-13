@@ -1,29 +1,23 @@
-###
-POST https://{{host}}:{{port}}/test
-Content-Type: application/json
-
-{
-  "time": 1684769957969,
-  "event_type": "event.start",
-  "event_data": {
-    "type": "race",
-    "laps": "50"
-  }
-}
-
-###
+### Event.change_status
 POST https://{{host}}:{{port}}/
 Content-Type: application/json
 
-{
-  "time": 1684769957969,
-  "event_type": "event.change_status",
-  "event_data": {
-    "old": "running",
-    "new": "ended"
-  }
-}
+< ./sample-requests/event.change_status_1.json
 
-###
-GET https://{{host}}:{{port}}/
-Accept: text/plain
+### Event.end 1
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.end_1.json
+
+### Event.start 1
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.start_1.json
+
+### Event.start 2
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.start_2.json

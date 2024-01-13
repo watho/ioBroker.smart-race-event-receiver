@@ -65,3 +65,37 @@ export class RaceEventHandling {
         await this.adapter.setStateAsync("event.raceStatus", { val: newStatus, ack: true, ts: eventTime });
     }
 }
+
+export interface EventData {
+    time: number;
+    event_type: string;
+    event_data: EventChangeStatus | EventStart | EventEnd;
+}
+
+export interface EventStart {
+    type: string;
+    laps: number;
+    duration: number;
+}
+
+export interface EventChangeStatus {
+    old: string;
+    new: string;
+}
+
+export interface EventEnd {
+    type: string;
+    result: Record<number, Driver>;
+}
+
+export interface Driver {
+    best_laptime: number;
+    car_id: number;
+    controller_id: number;
+    disqualified: boolean;
+    driver_id: number;
+    gap: string;
+    laps: number;
+    pitstops: number;
+    retired: boolean;
+}
