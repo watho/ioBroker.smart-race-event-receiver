@@ -1,15 +1,17 @@
 import { SmartRaceEventReceiver } from "../main";
+import {Convert, RaceEvent} from "./race-event-parsing";
 export class RaceEventHandling {
     private adapter: SmartRaceEventReceiver;
     constructor(adapter: SmartRaceEventReceiver) {
         this.adapter = adapter;
     }
 
-    async handleRequest(event: any): Promise<void> {
-        const eventType = event.event_type;
+    async handleRequest(eventJson: string): Promise<void> {
+        const raceEvent = this.parseEventData(eventJson);
+        const eventType = raceEvent.event_type;
         this.adapter.log.debug("Handling event " + eventType);
-        const eventTime = event.time;
-        const eventData = event.event_data;
+        const eventTime = raceEvent.time;
+        const eventData = raceEvent.event_data;
 
         switch (eventType) {
             case "event.start":
@@ -24,6 +26,11 @@ export class RaceEventHandling {
             default:
                 this.adapter.log.warn("Invalid or unimplemented event type received: " + eventType);
         }
+    }
+
+    parseEventData(eventDataJson: string): RaceEvent {
+        const raceEvent = Convert.toRaceEvent(eventDataJson);
+        return raceEvent;
     }
 
     /**

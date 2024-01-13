@@ -42,6 +42,7 @@ module.exports = {
         "no-var": "error",
         "prefer-const": "error",
         "no-trailing-spaces": "error",
+        "linebreak-style": ["error", "CRLF"]
     },
     overrides: [
         {
