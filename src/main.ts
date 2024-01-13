@@ -5,16 +5,26 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
+import { RaceEventHandling } from "./lib/race_event_handling";
+import { WebServer } from "@iobroker/webserver";
+import { IncomingMessage, ServerResponse } from "http";
+import * as http from "http";
+import * as https from "https";
 
-// Load your modules here, e.g.:
-// import * as fs from "fs";
+export class SmartRaceEventReceiver extends utils.Adapter {
+    private server:
+        | http.Server<typeof IncomingMessage, typeof ServerResponse>
+        | https.Server<typeof http.IncomingMessage, typeof http.ServerResponse>
+        | undefined;
 
-class SmartRaceEventReceiver extends utils.Adapter {
+    private api: RaceEventHandling;
+
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
             ...options,
             name: "smart-race-event-receiver",
         });
+        this.api = new RaceEventHandling(this);
         this.on("ready", this.onReady.bind(this));
         this.on("stateChange", this.onStateChange.bind(this));
         // this.on("objectChange", this.onObjectChange.bind(this));
@@ -30,28 +40,68 @@ class SmartRaceEventReceiver extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info("config option1: " + this.config.option1);
-        this.log.info("config option2: " + this.config.option2);
+        this.log.info("config useSsl: " + this.config.useSsl);
+        this.log.info("config port: " + this.config.port);
+
+        const requestProcessor = (req: IncomingMessage, res: ServerResponse): void => {
+            if (req.method === "POST") {
+                //this.log.info("Buh");
+                //this.log.debug("Received request: " + req.url);
+                // var parsedUrl = url.parse(req.url, true);
+                // var reqData = parsedUrl.query;
+                //
+                // adapter.log.debug("Analyzed request data: " + JSON.stringify(reqData));
+                // var user = parsedUrl.pathname.slice(1);
+                this.log.debug("Request received: " + req.url);
+                //const reqData = JSON.stringify(req.data);
+                //this.log.debug("Payload: " + reqData);
+
+                let body = "";
+                // retrieving and appending post data
+                req.on("data", (data) => (body += data));
+                // end of data
+                req.on("end", () => {
+                    this.log.debug("Payload: " + body);
+                    const payload = JSON.parse(body);
+                    this.api.handleRequest(payload);
+                });
+                res.writeHead(200);
+                res.write("OK");
+                res.end();
+            } else {
+                res.writeHead(500);
+                res.write("Request error");
+                res.end();
+            }
+        };
+
+        const webServer = new WebServer({ adapter: this, app: requestProcessor, secure: this.config.useSsl });
+        // initialize and you can use your server as known
+        this.server = await webServer.init();
+        this.log.info(
+            "Starting server on port " + this.config.port + " and protocol " + (this.config.useSsl ? "https" : "http"),
+        );
+        this.server.listen(this.config.port);
 
         /*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
-        await this.setObjectNotExistsAsync("testVariable", {
-            type: "state",
-            common: {
-                name: "testVariable",
-                type: "boolean",
-                role: "indicator",
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
+        // await this.setObjectNotExistsAsync("testVariable", {
+        //     type: "state",
+        //     common: {
+        //         name: "testVariable",
+        //         type: "boolean",
+        //         role: "indicator",
+        //         read: true,
+        //         write: true,
+        //     },
+        //     native: {},
+        // });
 
         // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        this.subscribeStates("testVariable");
+        // this.subscribeStates("testVariable");
         // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
         // this.subscribeStates("lights.*");
         // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
@@ -62,21 +112,21 @@ class SmartRaceEventReceiver extends utils.Adapter {
 			you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
 		*/
         // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync("testVariable", true);
+        // await this.setStateAsync("testVariable", true);
 
         // same thing, but the value is flagged "ack"
         // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync("testVariable", { val: true, ack: true });
+        // await this.setStateAsync("testVariable", { val: true, ack: true });
 
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+        // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
         // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync("admin", "iobroker");
-        this.log.info("check user admin pw iobroker: " + result);
-
-        result = await this.checkGroupAsync("admin", "admin");
-        this.log.info("check group user admin group admin: " + result);
+        // let result = await this.checkPasswordAsync("admin", "iobroker");
+        // this.log.info("check user admin pw iobroker: " + result);
+        //
+        // result = await this.checkGroupAsync("admin", "admin");
+        // this.log.info("check group user admin group admin: " + result);
     }
 
     /**
@@ -89,7 +139,11 @@ class SmartRaceEventReceiver extends utils.Adapter {
             // clearTimeout(timeout2);
             // ...
             // clearInterval(interval1);
-
+            this.log.debug("onUnload");
+            if (this.server) {
+                this.log.debug("closing server on port " + this.config.port);
+                this.server.close();
+            }
             callback();
         } catch (e) {
             callback();

@@ -44,8 +44,14 @@
             "uk": "Отримання подій перегонів від SmartRace-App",
             "zh-cn": "从 SmartRace-App 接收比赛事件"
         },
-        "authors": ["watho <watho@users.noreply.github.com>"],
-        "keywords": ["smartrace", "slotcar", "racing"],
+        "authors": [
+            "watho <watho@users.noreply.github.com>"
+        ],
+        "keywords": [
+            "smartrace",
+            "slotcar",
+            "racing"
+        ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
         "main": "build/main.js",
@@ -76,41 +82,42 @@
         ]
     },
     "native": {
-        "port": "8090"
+        "useSsl": true,
+        "port": "8085"
     },
     "objects": [],
-	"instanceObjects": [
-		{
-			"_id": "event",
-			"type": "channel",
-			"common": {
-				"name": "RaceEvent"
-			},
-			"native": {}
-		},
-		{
-			"_id": "event.lastRaceEventTimestamp",
-			"type": "state",
-			"common": {
-				"name": "lastRaceEventTimestamp",
-				"type": "number",
-				"role": "value.time",
-				"read": true,
-				"write": false
-			},
-			"native": {}
-		},
-		{
-			"_id": "event.raceStatus",
-			"type": "state",
-			"common": {
-				"name": "raceStatus",
-				"type": "string",
-				"role": "state",
-				"read": true,
-				"write": false
-			},
-			"native": {}
-}
-	]
+    "instanceObjects": [
+        {
+            "_id": "event",
+            "type": "channel",
+            "common": {
+                "name": "RaceEvent"
+            },
+            "native": {}
+        },
+        {
+            "_id": "event.lastRaceEventTimestamp",
+            "type": "state",
+            "common": {
+                "name": "lastRaceEventTimestamp",
+                "type": "number",
+                "role": "value.time",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "event.raceStatus",
+            "type": "state",
+            "common": {
+                "name": "raceStatus",
+                "type": "string",
+                "role": "state",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }

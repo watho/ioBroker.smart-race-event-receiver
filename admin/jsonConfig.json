@@ -2,14 +2,14 @@
     "i18n": true,
     "type": "panel",
     "items": {
-        "option1": {
+        "useSsl": {
             "type": "checkbox",
-            "label": "option1",
+            "label": "Use secured connection.",
             "newLine": true
         },
-        "option2": {
-            "type": "text",
-            "label": "option2",
+        "port": {
+            "type": "number",
+            "label": "Port",
             "newLine": true
         }
     }

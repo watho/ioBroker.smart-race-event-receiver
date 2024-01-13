@@ -15,3 +15,9 @@ Thumbs.db
 # i18n intermediate files
 admin/i18n/flat.txt
 admin/i18n/*/flat.txt
+/request/http-client.private.env.json
+
+# build files
+build/**/*.js
+build/**/*.js.map
+.directory
