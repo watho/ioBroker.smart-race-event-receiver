@@ -21,7 +21,8 @@
     "node": ">= 18"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^3.0.4"
+    "@iobroker/adapter-core": "^3.0.4",
+    "@iobroker/webserver": "^1.0.3"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.7.0",
@@ -40,8 +41,8 @@
     "@types/sinon-chai": "^3.2.12",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
-    "chai-as-promised": "^7.1.1",
     "chai": "^4.4.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

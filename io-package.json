@@ -64,24 +64,6 @@
             "config": "json",
             "tab": "materialize"
         },
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "SmartRaceEventReceiver",
-                "de": "SmartRaceEventReceiver",
-                "ru": "SmartRaceEventReceiver",
-                "pt": "SmartRaceEventReceptor",
-                "nl": "SmartRaceEventReceiver",
-                "fr": "Récepteur d'événements SmartRace",
-                "it": "SmartRaceEventReceiver",
-                "es": "Receptor de eventos de carrera inteligente",
-                "pl": "Odbiornik SmartRaceEvent",
-                "uk": "SmartRaceEventReceiver",
-                "zh-cn": "SmartRaceEventReceiver"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
         "dependencies": [
             {
                 "js-controller": ">=3.3.22"
