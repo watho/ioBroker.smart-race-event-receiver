@@ -36,13 +36,19 @@ customer who likes to share his work on integrating slotcar racing into home aut
 
 ## Changelog
 
-### 0.0.1 Initial working version
-
-- Creates webserver as receiving endpoint for the data interface.
-- Usage of ssl and port configurable.
-- Receives race status changed events and shows them in ioBroker objects.
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ### **WORK IN PROGRESS**
+
+* initial release
+* Creates webserver as receiving endpoint for the data interface.
+* Usage of ssl and port configurable.
+* Receives race status changed events and shows them in ioBroker objects.
+
+## Event Implementation Status
 
 | Event name            | Description             | Status |
 |-----------------------|-------------------------|--------|
