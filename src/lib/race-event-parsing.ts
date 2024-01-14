@@ -1,22 +1,5 @@
 import jointz, { Infer } from "jointz";
 
-const ThingValidator = jointz
-    .object({
-        id: jointz.string().uuid(),
-        name: jointz.string().minLength(3).maxLength(100),
-    })
-    .requiredKeys(["id", "name"]);
-
-type Thing = Infer<typeof ThingValidator>;
-
-const myObject: unknown = { id: "abc", name: "hello world!" };
-
-try {
-    const thing: Thing = ThingValidator.checkValid(myObject);
-} catch (validationError: any) {
-    console.log(validationError.errors);
-}
-
 export const RaceEventValidator = jointz
     .object({
         time: jointz.number(),

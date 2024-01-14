@@ -5,7 +5,7 @@
  * It is advised to test all your modules with accompanying *.test.ts-files
  */
 
-import { assert, expect } from "chai";
+import { expect } from "chai";
 // import { functionToTest } from "./moduleToTest";
 import { RaceEvent, RaceEventValidator } from "./lib/race-event-parsing";
 import fs from "node:fs";
