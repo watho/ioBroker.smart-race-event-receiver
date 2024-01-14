@@ -5,10 +5,10 @@
  * It is advised to test all your modules with accompanying *.test.ts-files
  */
 
-import { expect } from "chai";
+import { assert, expect } from "chai";
 // import { functionToTest } from "./moduleToTest";
-import { Convert, RaceEvent } from "./lib/race-event-parsing";
-import fs from "node:fs/promises";
+import { RaceEvent, RaceEventValidator } from "./lib/race-event-parsing";
+import fs from "node:fs";
 
 describe("module to test => function to test", () => {
     // initializing logic
@@ -25,34 +25,35 @@ describe("module to test => function to test", () => {
 });
 
 describe("Race Event Parsing => parse json to object", () => {
-    it(`should return object with event type change_status`, () => {
-        const exampleJsonPromise = readExampleFile("./request/sample-requests/event.change_status_1.json");
+    it(`should return thing object with event type change_status`, () => {
+        const exampleJson = readExampleFile("./request/sample-requests/event.change_status_1.json");
         //const raceEvent = Convert.toRaceEvent(exampleJson);
         // assign result a value from functionToTest
-        expect(exampleJsonPromise).to.eventually.exist;
-        exampleJsonPromise.then((exampleJson) => {
-            const raceEventPromise = Convert.toRaceEvent(exampleJson);
-            expect(raceEventPromise).to.eventually.exist;
-            expect(raceEventPromise).to.eventually.have.property("event_type").equals("event.change_status");
-        });
+        expect(exampleJson).to.exist;
+        const raceEvent: RaceEvent = RaceEventValidator.checkValid(JSON.parse(exampleJson));
+        expect(raceEvent).to.exist;
+        expect(raceEvent).to.have.property("event_type").equals("event.change_status");
+        expect(raceEvent.event_data).to.exist;
+        expect(raceEvent.event_data).to.have.property("old").equals("running");
+        expect(raceEvent.event_data).to.have.property("old").not.equals("");
         return;
     });
-    it(`should return object with event type race_end`, () => {
-        const exampleJsonPromise = readExampleFile("./request/sample-requests/event.end_1.json");
+    it(`should return thing object with event type event.start`, () => {
+        const exampleJson = readExampleFile("./request/sample-requests/event.start_1.json");
         //const raceEvent = Convert.toRaceEvent(exampleJson);
         // assign result a value from functionToTest
-        expect(exampleJsonPromise).to.eventually.exist;
-        exampleJsonPromise.then((exampleJson) => {
-            const raceEventPromise = Convert.toRaceEvent(exampleJson);
-            expect(raceEventPromise).to.eventually.exist;
-            expect(raceEventPromise).to.eventually.have.property("event_type").equals("event.race_end");
-        });
-        return;
+        expect(exampleJson).to.exist;
+
+        const raceEvent: RaceEvent = RaceEventValidator.checkValid(JSON.parse(exampleJson));
+        expect(raceEvent).to.exist;
+        expect(raceEvent).to.have.property("event_type").equals("event.start");
+        expect(raceEvent.event_data).to.exist;
+        expect(raceEvent.event_data).to.have.property("duration").equals("600");
     });
     // ... more tests => it
 });
 
 // ... more test suites => describe
-async function readExampleFile(fileName: string): Promise<string> {
-    return fs.readFile(fileName, { encoding: "utf8" });
+function readExampleFile(fileName: string): string {
+    return fs.readFileSync(fileName, { encoding: "utf8" });
 }

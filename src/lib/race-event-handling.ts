@@ -1,13 +1,15 @@
 import { SmartRaceEventReceiver } from "../main";
-import {Convert, RaceEvent} from "./race-event-parsing";
+import { RaceEvent, RaceEventValidator } from "./race-event-parsing";
+
 export class RaceEventHandling {
     private adapter: SmartRaceEventReceiver;
+
     constructor(adapter: SmartRaceEventReceiver) {
         this.adapter = adapter;
     }
 
     async handleRequest(eventJson: string): Promise<void> {
-        const raceEvent = this.parseEventData(eventJson);
+        const raceEvent = await this.parseEventData(eventJson);
         const eventType = raceEvent.event_type;
         this.adapter.log.debug("Handling event " + eventType);
         const eventTime = raceEvent.time;
@@ -28,8 +30,8 @@ export class RaceEventHandling {
         }
     }
 
-    parseEventData(eventDataJson: string): RaceEvent {
-        const raceEvent = Convert.toRaceEvent(eventDataJson);
+    async parseEventData(eventDataJson: string): Promise<RaceEvent> {
+        const raceEvent: RaceEvent = RaceEventValidator.checkValid(eventDataJson);
         return raceEvent;
     }
 
@@ -71,38 +73,4 @@ export class RaceEventHandling {
         await this.adapter.setStateAsync("event.lastRaceEventTimestamp", { val: eventTime, ack: true });
         await this.adapter.setStateAsync("event.raceStatus", { val: newStatus, ack: true, ts: eventTime });
     }
-}
-
-export interface EventData {
-    time: number;
-    event_type: string;
-    event_data: EventChangeStatus | EventStart | EventEnd;
-}
-
-export interface EventStart {
-    type: string;
-    laps: number;
-    duration: number;
-}
-
-export interface EventChangeStatus {
-    old: string;
-    new: string;
-}
-
-export interface EventEnd {
-    type: string;
-    result: Record<number, Driver>;
-}
-
-export interface Driver {
-    best_laptime: number;
-    car_id: number;
-    controller_id: number;
-    disqualified: boolean;
-    driver_id: number;
-    gap: string;
-    laps: number;
-    pitstops: number;
-    retired: boolean;
 }
