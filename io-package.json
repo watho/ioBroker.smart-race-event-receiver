@@ -1,122 +1,135 @@
 {
-    "common": {
-        "name": "smart-race-event-receiver",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "uk": "Початкова версія",
-                "zh-cn": "首次出版"
-            }
-        },
-        "titleLang": {
-            "en": "SmartRaceEventReceiver",
-            "de": "SmartRaceEventReceiver",
-            "ru": "SmartRaceEventReceiver",
-            "pt": "SmartRaceEventReceptor",
-            "nl": "SmartRaceEventReceiver",
-            "fr": "Récepteur d'événements SmartRace",
-            "it": "SmartRaceEventReceiver",
-            "es": "Receptor de eventos de carrera inteligente",
-            "pl": "Odbiornik SmartRaceEvent",
-            "uk": "SmartRaceEventReceiver",
-            "zh-cn": "SmartRaceEventReceiver"
-        },
-        "desc": {
-            "en": "Receiving race events from SmartRace-App",
-            "de": "Empfang von Rennereignissen von der SmartRace-App",
-            "ru": "Получение событий гонки из приложения SmartRace.",
-            "pt": "Recebendo eventos de corrida do SmartRace-App",
-            "nl": "Race-evenementen ontvangen van SmartRace-App",
-            "fr": "Recevoir des événements de course depuis SmartRace-App",
-            "it": "Ricevere eventi di gara dall'app SmartRace",
-            "es": "Recibir eventos de carrera desde la aplicación SmartRace",
-            "pl": "Odbieranie wydarzeń wyścigowych z aplikacji SmartRace",
-            "uk": "Отримання подій перегонів від SmartRace-App",
-            "zh-cn": "从 SmartRace-App 接收比赛事件"
-        },
-        "authors": [
-            "watho <watho@users.noreply.github.com>"
-        ],
-        "keywords": [
-            "smartrace",
-            "slotcar",
-            "racing"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "smart-race-event-receiver.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/watho/ioBroker.smart-race-event-receiver/main/admin/smart-race-event-receiver.png",
-        "readme": "https://github.com/watho/ioBroker.smart-race-event-receiver/blob/main/README.md",
-        "loglevel": "info",
-        "tier": 3,
-        "mode": "daemon",
-        "type": "misc-data",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "push",
-        "adminUI": {
-            "config": "json",
-            "tab": "materialize"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "smart-race-event-receiver",
+    "version": "0.0.2-alpha.0",
+    "news": {
+      "0.0.2-alpha.0": {
+        "en": "initial release\nCreates webserver as receiving endpoint for the data interface.\nUsage of ssl and port configurable.\nReceives race status changed events and shows them in ioBroker objects.",
+        "de": "Erste Testverion\nErstellt Webserver als Endpunkt für die Datenschnittstelle.\nVerwendung von ssl und Port konfigurierbar.\nEmpfängt Änderungen im Rennstatus und zeigt sie in ioBroker-Objekten.",
+        "ru": "первоначальный выпуск\nСоздает веб-сервер в качестве конечной точки для интерфейса данных.\nИспользование ssl и Port configurable.\nПолучает статус расы изменил события и показывает их в ioBroker объектов.",
+        "pt": "lançamento inicial\nCria webserver como receptor endpoint para a interface de dados.\nUso de ssl e porta configurável.\nRecebe o status da corrida mudou eventos e mostra-os em objetos ioBroker.",
+        "nl": "eerste release\nMaakt webserver als ontvangend eindpunt voor de data interface.\nGebruik van ssl en poort configureerbaar.\nOntvangt ras status veranderde gebeurtenissen en toont ze in ioBroker objecten.",
+        "fr": "libération initiale\nCrée un serveur web comme point d'arrivée pour l'interface de données.\nUtilisation de ssl et port configurable.\nReçoit le statut de course changé d'événements et les montre dans les objets ioBroker.",
+        "it": "rilascio iniziale\nCrea webserver come endpoint ricevente per l'interfaccia dati.\nUtilizzo di ssl e porta configurabile.\nRiceve lo stato di gara cambiato eventi e li mostra in oggetti ioBroker.",
+        "es": "liberación inicial\nCrea webserver como punto final receptor para la interfaz de datos.\nUso de ssl y puerto configurable.\nRecibe el estado de la raza cambios eventos y los muestra en objetos ioBroker.",
+        "pl": "początkowe zwolnienie\nTworzy serwer webserver jako punkt końcowy dla interfejsu danych.\nKonfigurowalne użycie ssl i portu.\nOtrzymuje status wyścigu zmienił zdarzenia i pokazuje je w obiektach jOBroker.",
+        "uk": "початковий реліз\nСтворення вебсервера як отримання кінцевої точки для інтерфейсу даних.\nВикористання sssl і портів configurable.\nОдержує зміни стану забігів і показує їх в об'єктах ІоБрокер.",
+        "zh-cn": "初步释放\n创建网络服务器作为数据接口的接收端点.\n使用ssl和端口可配置.\n接收种族状态更改的事件,并在ioBroker对象中显示它们."
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Початкова версія",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": {
-        "useSsl": true,
-        "port": "8085"
+    "titleLang": {
+      "en": "SmartRaceEventReceiver",
+      "de": "SmartRaceEventReceiver",
+      "ru": "SmartRaceEventReceiver",
+      "pt": "SmartRaceEventReceptor",
+      "nl": "SmartRaceEventReceiver",
+      "fr": "Récepteur d'événements SmartRace",
+      "it": "SmartRaceEventReceiver",
+      "es": "Receptor de eventos de carrera inteligente",
+      "pl": "Odbiornik SmartRaceEvent",
+      "uk": "SmartRaceEventReceiver",
+      "zh-cn": "SmartRaceEventReceiver"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "event",
-            "type": "channel",
-            "common": {
-                "name": "RaceEvent"
-            },
-            "native": {}
-        },
-        {
-            "_id": "event.lastRaceEventTimestamp",
-            "type": "state",
-            "common": {
-                "name": "lastRaceEventTimestamp",
-                "type": "number",
-                "role": "value.time",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "event.raceStatus",
-            "type": "state",
-            "common": {
-                "name": "raceStatus",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "Receiving race events from SmartRace-App",
+      "de": "Empfang von Rennereignissen von der SmartRace-App",
+      "ru": "Получение событий гонки из приложения SmartRace.",
+      "pt": "Recebendo eventos de corrida do SmartRace-App",
+      "nl": "Race-evenementen ontvangen van SmartRace-App",
+      "fr": "Recevoir des événements de course depuis SmartRace-App",
+      "it": "Ricevere eventi di gara dall'app SmartRace",
+      "es": "Recibir eventos de carrera desde la aplicación SmartRace",
+      "pl": "Odbieranie wydarzeń wyścigowych z aplikacji SmartRace",
+      "uk": "Отримання подій перегонів від SmartRace-App",
+      "zh-cn": "从 SmartRace-App 接收比赛事件"
+    },
+    "authors": [
+      "watho <watho@users.noreply.github.com>"
+    ],
+    "keywords": [
+      "smartrace",
+      "slotcar",
+      "racing"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "smart-race-event-receiver.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/watho/ioBroker.smart-race-event-receiver/main/admin/smart-race-event-receiver.png",
+    "readme": "https://github.com/watho/ioBroker.smart-race-event-receiver/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "misc-data",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "push",
+    "adminUI": {
+      "config": "json",
+      "tab": "materialize"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
     ]
+  },
+  "native": {
+    "useSsl": true,
+    "port": "8085"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "event",
+      "type": "channel",
+      "common": {
+        "name": "RaceEvent"
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.lastRaceEventTimestamp",
+      "type": "state",
+      "common": {
+        "name": "lastRaceEventTimestamp",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.raceStatus",
+      "type": "state",
+      "common": {
+        "name": "raceStatus",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }

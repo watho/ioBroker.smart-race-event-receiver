@@ -40,8 +40,7 @@ customer who likes to share his work on integrating slotcar racing into home aut
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.0 (2024-01-14)
 
 * initial release
 * Creates webserver as receiving endpoint for the data interface.
