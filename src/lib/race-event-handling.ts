@@ -9,10 +9,12 @@ export class RaceEventHandling {
     }
 
     async handleRequest(eventJson: string): Promise<void> {
-        const raceEvent = await this.parseEventData(eventJson);
+        const raceEvent: RaceEvent = await this.parseEventData(eventJson);
         const eventType = raceEvent.event_type;
         this.adapter.log.debug("Handling event " + eventType);
         const eventTime = raceEvent.time;
+        await this.adapter.setStateAsync("event.name", { val: eventType, ack: true, ts: eventTime });
+        await this.adapter.setStateAsync("event.timestamp", { val: eventTime, ack: true, ts: eventTime });
         const eventData = raceEvent.event_data;
 
         switch (eventType) {
@@ -70,7 +72,7 @@ export class RaceEventHandling {
         const oldStatus = eventData.old;
         const newStatus = eventData.new;
         this.adapter.log.info("Change race status from " + oldStatus + " to " + newStatus);
-        await this.adapter.setStateAsync("event.lastRaceEventTimestamp", { val: eventTime, ack: true });
-        await this.adapter.setStateAsync("event.raceStatus", { val: newStatus, ack: true, ts: eventTime });
+        await this.adapter.setStateAsync("event.change_status.old", { val: oldStatus, ack: true, ts: eventTime });
+        await this.adapter.setStateAsync("event.change_status.new", { val: newStatus, ack: true, ts: eventTime });
     }
 }
