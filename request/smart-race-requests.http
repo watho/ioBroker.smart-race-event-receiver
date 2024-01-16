@@ -1,8 +1,14 @@
-### Event.change_status
+### Event.change_status 1
 POST https://{{host}}:{{port}}/
 Content-Type: application/json
 
 < ./sample-requests/event.change_status_1.json
+
+### Event.change_status 2
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.change_status_2.json
 
 ### Event.end 1
 POST https://{{host}}:{{port}}/
@@ -21,3 +27,15 @@ POST https://{{host}}:{{port}}/
 Content-Type: application/json
 
 < ./sample-requests/event.start_2.json
+
+### Event.empty
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.empty.json
+
+### invalid request
+POST https://{{host}}:{{port}}/
+Content-Type: application/json
+
+< ./sample-requests/event.empty.json

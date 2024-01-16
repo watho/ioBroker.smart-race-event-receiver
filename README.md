@@ -16,7 +16,8 @@
 
 This Adapter receives events from the smartrace app for slotcar racing. See [smartrace.de](https://www.smartrace.de/en/)
 and [buy them a coffee](https://www.smartrace.de/en/buy-me-a-coffee/).
-The adapter uses the data interface which is a paid feature, so if you don't have a slotcar racetrack and don't use the
+The adapter uses the [data interface](https://www.smartrace.de/en/the-smartrace-manual/data-interface/) which is a paid
+feature, so if you don't have a slotcar racetrack and don't use the
 smartrace app or don't want to pay for the data interface then this adapter is not for you.
 
 ## Disclaimer
@@ -32,7 +33,8 @@ customer who likes to share his work on integrating slotcar racing into home aut
 
 - Enable data interface in smartrace app.
 - Enter your ioBroker-url + port as configured (default 8085) in smart race app.
-- Look at data point `smart-race-event-receiver.0.event.raceStatus` for the current race status, e.g. running, ended.
+- Look at folder `smart-race-event-receiver.0.event.change_status` for the previous and current race status, e.g.
+  running, ended.
 
 ## Changelog
 
@@ -40,6 +42,12 @@ customer who likes to share his work on integrating slotcar racing into home aut
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* Restructured `event.change_status`.
+* Added handling of `event.start`.
+
 ### 0.0.2-alpha.0 (2024-01-14)
 
 * initial release
@@ -52,7 +60,7 @@ customer who likes to share his work on integrating slotcar racing into home aut
 | Event name            | Description             | Status |
 |-----------------------|-------------------------|--------|
 | `event.change_status` | Changes in race status. | yes    |
-| `event.start`         | Race started.           | wip    |
+| `event.start`         | Race started.           | yes    |
 | `event.end`           | Race ended.             | wip    |
 | more to come          |                         |        |
 

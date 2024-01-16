@@ -101,17 +101,17 @@
   "instanceObjects": [
     {
       "_id": "event",
-      "type": "channel",
+      "type": "folder",
       "common": {
         "name": "RaceEvent"
       },
       "native": {}
     },
     {
-      "_id": "event.lastRaceEventTimestamp",
+      "_id": "event.timestamp",
       "type": "state",
       "common": {
-        "name": "lastRaceEventTimestamp",
+        "name": "LastEventTimestamp",
         "type": "number",
         "role": "value.time",
         "read": true,
@@ -120,14 +120,98 @@
       "native": {}
     },
     {
-      "_id": "event.raceStatus",
+      "_id": "event.name",
       "type": "state",
       "common": {
-        "name": "raceStatus",
+        "name": "LastEventName",
         "type": "string",
         "role": "state",
         "read": true,
         "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.change_status",
+      "type": "channel",
+      "common": {
+        "name": "ChangeStatus"
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.change_status.new",
+      "type": "state",
+      "common": {
+        "name": "RaceEventChangeNew",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.change_status.old",
+      "type": "state",
+      "common": {
+        "name": "RaceEventChangeOld",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.start",
+      "type": "channel",
+      "common": {
+        "name": "RaceStart"
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.start.type",
+      "type": "state",
+      "common": {
+        "name": "StartType",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.start.duration",
+      "type": "state",
+      "common": {
+        "name": "RaceDuration",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.start.laps",
+      "type": "state",
+      "common": {
+        "name": "RaceLaps",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "event.end",
+      "type": "channel",
+      "common": {
+        "name": "RaceEnd"
       },
       "native": {}
     }

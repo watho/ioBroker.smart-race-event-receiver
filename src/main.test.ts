@@ -9,6 +9,7 @@ import { expect } from "chai";
 // import { functionToTest } from "./moduleToTest";
 import { RaceEvent, RaceEventValidator } from "./lib/race-event-parsing";
 import fs from "node:fs";
+import { FailedValidationError } from "jointz";
 
 describe("module to test => function to test", () => {
     // initializing logic
@@ -49,6 +50,23 @@ describe("Race Event Parsing => parse json to object", () => {
         expect(raceEvent).to.have.property("event_type").equals("event.start");
         expect(raceEvent.event_data).to.exist;
         expect(raceEvent.event_data).to.have.property("duration").equals("600");
+    });
+    it(`should throw error if request is invalid`, () => {
+        const exampleJson = readExampleFile("./request/sample-requests/invalid_request.json");
+        expect(exampleJson).to.exist;
+        expect(function () {
+            RaceEventValidator.checkValid(JSON.parse(exampleJson));
+        }).to.throw(FailedValidationError);
+        //expect(RaceEventValidator.checkValid(JSON.parse(exampleJson))).to.throw(FailedValidationError);
+    });
+    it(`should not crash adapter if request is invalid`, () => {
+        const exampleJson = readExampleFile("./request/sample-requests/invalid_request.json");
+        expect(exampleJson).to.exist;
+        // TODO needs an adapter mock
+        //const reh = new RaceEventHandling(null);
+        //expect(function () {
+        //    reh.parseEventData(exampleJson);
+        //}).to.not.throw();
     });
     // ... more tests => it
 });
