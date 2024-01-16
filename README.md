@@ -45,7 +45,8 @@ customer who likes to share his work on integrating slotcar racing into home aut
 
 ### **WORK IN PROGRESS**
 
-* Restructured event.change_status.
+* Restructured `event.change_status`.
+* Added handling of `event.start`.
 
 ### 0.0.2-alpha.0 (2024-01-14)
 
@@ -59,7 +60,7 @@ customer who likes to share his work on integrating slotcar racing into home aut
 | Event name            | Description             | Status |
 |-----------------------|-------------------------|--------|
 | `event.change_status` | Changes in race status. | yes    |
-| `event.start`         | Race started.           | wip    |
+| `event.start`         | Race started.           | yes    |
 | `event.end`           | Race ended.             | wip    |
 | more to come          |                         |        |
 
