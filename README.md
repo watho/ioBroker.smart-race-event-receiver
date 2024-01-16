@@ -42,8 +42,7 @@ customer who likes to share his work on integrating slotcar racing into home aut
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.1 (2024-01-16)
 
 * Restructured `event.change_status`.
 * Added handling of `event.start`.

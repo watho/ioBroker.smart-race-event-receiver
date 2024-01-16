@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "smart-race-event-receiver",
-    "version": "0.0.2-alpha.0",
+    "version": "0.0.2-alpha.1",
     "news": {
+      "0.0.2-alpha.1": {
+        "en": "Restructured `event.change_status`.\nAdded handling of `event.start`.",
+        "de": "Neue Struktur für `event.change_status`.\nDas Handling von `event.start` wurde hinzugefügt.",
+        "ru": "Реструктуризация \"event.change_status\".\nДобавлена обработка \"event.start\".",
+        "pt": "Reestruturado `event.change_status`.\nAdicionado manuseio de `event.start`.",
+        "nl": "Gestructureerde status.change_status.\nToegevoegde behandeling van .",
+        "fr": "Restructuré `event.change_status`.\nAjout de la gestion de `event.start`.",
+        "it": "Ristrutturato `event.change_status`.\nAggiunta gestione di `event.start`.",
+        "es": "Reestructurado `event.change_status`.\nAñadido el manejo de `event.start`.",
+        "pl": "Restrukturyzowane 'event.change _ status'.\nDodano obsługę 'event.start'.",
+        "uk": "Реструктуризація `event.change_status`.\nДодано обробку `event.start`.",
+        "zh-cn": "调整了`event.change_status'的结构.\n增加了“活动.开始”的处理."
+      },
       "0.0.2-alpha.0": {
         "en": "initial release\nCreates webserver as receiving endpoint for the data interface.\nUsage of ssl and port configurable.\nReceives race status changed events and shows them in ioBroker objects.",
         "de": "Erste Testverion\nErstellt Webserver als Endpunkt für die Datenschnittstelle.\nVerwendung von ssl und Port konfigurierbar.\nEmpfängt Änderungen im Rennstatus und zeigt sie in ioBroker-Objekten.",

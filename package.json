@@ -1,6 +1,6 @@
 {
   "name": "iobroker.smart-race-event-receiver",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.2-alpha.1",
   "description": "Receiving race events from SmartRace-App",
   "author": {
     "name": "watho",
