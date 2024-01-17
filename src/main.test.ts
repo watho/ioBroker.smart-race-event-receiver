@@ -63,7 +63,11 @@ describe("Race Event Parsing => parse json to object", () => {
         const exampleJson = readExampleFile("./request/sample-requests/invalid_request.json");
         expect(exampleJson).to.exist;
         // TODO needs an adapter mock
-        //const reh = new RaceEventHandling(null);
+        //const { adapter, database } = utils.unit.createMocks({});
+        //const { assertObjectExists } = utils.unit.createAsserts(database, adapter);
+        //const adapterMock = sinon.spy(SmartRaceEventReceiver);
+
+        //const reh = new RaceEventHandling(adapterMock.prototype);
         //expect(function () {
         //    reh.parseEventData(exampleJson);
         //}).to.not.throw();
