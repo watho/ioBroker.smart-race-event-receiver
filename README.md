@@ -40,7 +40,7 @@ customer who likes to share his work on integrating slotcar racing into home aut
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.2 (2024-01-17)
 
 * Bugfix in build-process.
 -->

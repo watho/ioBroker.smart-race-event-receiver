@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "smart-race-event-receiver",
-    "version": "0.0.2-alpha.1",
+    "version": "0.0.2-alpha.2",
     "news": {
+      "0.0.2-alpha.2": {
+        "en": "Bugfix in build-process.\n->",
+        "de": "Bugfix im Build-Prozess.\n->",
+        "ru": "Bugfix in build-process.\n->",
+        "pt": "Bugfix no processo de construção.\n->",
+        "nl": "Bugfix in bouwproces.\n->",
+        "fr": "Bugfix dans le processus de construction.\n->",
+        "it": "Bugfix nel processo di costruzione.\n->",
+        "es": "Bugfix en el proceso de construcción.\n->",
+        "pl": "Bugfix w procesie budowania.\n->",
+        "uk": "Виправлення помилок в процесі будівництва.\n->",
+        "zh-cn": "构建过程中的错误修正 .\n->"
+      },
       "0.0.2-alpha.1": {
         "en": "Restructured `event.change_status`.\nAdded handling of `event.start`.",
         "de": "Neue Struktur für `event.change_status`.\nDas Handling von `event.start` wurde hinzugefügt.",
