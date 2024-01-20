@@ -41,7 +41,7 @@ Content-Type: application/json
 < ./sample-requests/event.empty.json
 
 ### Event.change_status 1
-POST http://192.168.178.145:8085/api
+POST http://{{host}}:{{port}}/api
 Content-Type: application/json
 
 < ./sample-requests/event.change_status_1.json

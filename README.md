@@ -63,7 +63,13 @@ customer who likes to share his work on integrating slotcar racing into home aut
 | `event.change_status` | Changes in race status. | yes    |
 | `event.start`         | Race started.           | yes    |
 | `event.end`           | Race ended.             | wip    |
+| `ui.lap_udate`        | New Lap.                | wip    |
 | more to come          |                         |        |
+
+## Q&A
+
+- Want to send the events to more than one endpoint?
+    - Use a proxy to mirror requests. E.g. nginx https://nginx.org/en/docs/http/ngx_http_mirror_module.html
 
 ## License
 
